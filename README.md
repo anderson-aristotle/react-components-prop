@@ -204,3 +204,47 @@ Your `Welcome` component's `render` method:
 > Hint: Remember, the return statement in render can only return one DOM
 > element. You can, however, place multiple elements within a parent div
 > element.
+
+### Review and Refactor
+
+`Welcome` in `src/App.js` is our component class. It has a `render` method that returns the JSX for our "Welcome to my Movies!" and heading tags. Keeping components separate and organized is a best practice, so we created that class in its own file.
+
+To show up on the page, though, that component still needs to actually be called from somewhere.  The main "hub" of our React app is `src/index.js`.  We'll investigate how `src/index.js` is currently loading and rendering the component, and we'll improve the code by making it more explicit and readable.
+
+Look at your `src/index.js` file, and contrast it with the code below.
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Welcome from './App.js';
+
+ReactDOM.render(
+  <Welcome />,
+  document.getElementById('root')
+)
+```
+
+The first (and smallest) difference is that we've dropped the CSS file import. We just aren't using it.
+
+The next difference is that `import App from './App';` has turned into `import Welcome from './App.js'`.
+
+> This line imports the `Welcome` component from the `src/App.js` file. Remember, the `default` part of `export default Welcome` in `src/App.js` means that importing other names - like `App` - actually _already_ brings in the `Welcome` component! As a best practice, though, we're going to explicitly import the `Welcome` component.
+
+
+The last difference is that `ReactDOM.render(
+  <App />,` has turned into `ReactDOM.render(
+    <Welcome />,`.
+
+> This changes the `ReactDOM.render()` call to explicitly say "Render whatever the component `Welcome` returns."
+
+
+### `Welcome` exercise
+
+#### Code along: Calling our `Welcome` component explicitly
+
+Update your `index.js` file to have the three changes listed above:
+-   Delete the CSS import.
+-   Change the component name that's imported to be your `Welcome` component.
+-   Change the component name that's used inside `ReactDOM.render` to be your `Welcome` component.
+
+> Check it out! You should be able to browse to [localhost port 3000](http://localhost:3000) and see that nothing has changed.
