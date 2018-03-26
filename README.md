@@ -35,7 +35,7 @@ When using React, building components will be your main front-end task.
 Take a look at [CraigsList](https://boston.craigslist.org/search/aap) (note:
 right click to open in a new tab!).
 
-![](https://git.generalassemb.ly/raw/WDI/react-intro/master/images/craigslist.png?token=AAAWOZFWcxyr7UkFEAPLpMO5p1dwKT_dks5apqb4wA%3D%3D)
+![](https://i.imgur.com/KyGkUDI.jpg)
 
 Each listing is a component. How can you identify this?
 
@@ -47,12 +47,12 @@ listing page, so put in any "From" (for example, New
 York - Penn Station), any "To" (for example, Boston - South Station), and pick
 any date. Hit "Find Trains". Now look at the listing page:
 
-![](https://git.generalassemb.ly/raw/WDI/react-intro/master/images/amtrak.png?token=AAAWOfV9ITQK42ZkpeW6_33OxnatrpkNks5apqdAwA%3D%3D)
+![](https://i.imgur.com/p8twGTj.png)
 
 Scrolling down it, identify the visual "components" the website is comprised
 of. We suggest drawing this out on paper! So something like this...
 
-![](https://git.generalassemb.ly/raw/WDI/react-intro/master/images/wireframe_deconstructed.png?token=AAAWOSoMtvFw3hac9bERTPV9gpeF_7P6ks5apqd6wA%3D%3D)
+![](https://i.imgur.com/APxsAMF.png)
 
 As you're drawing this out, think about the following questions...
 
