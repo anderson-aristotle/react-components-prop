@@ -203,4 +203,4 @@ Your `Welcome` component's `render` method:
 
 > Hint: Remember, the return statement in render can only return one DOM
 > element. You can, however, place multiple elements within a parent div
-> element.*
+> element.
