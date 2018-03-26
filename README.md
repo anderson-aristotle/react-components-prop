@@ -62,17 +62,16 @@ As you're drawing this out, think about the following questions...
 
 #### So -
 
-What does a component look like? Let's start with a simple "Hello World"
-example...
+What does a component look like? Let's start with a simple example...
 
 ### Code along: A Very Basic Component
 
 In this section, we'll walk through:
 
--   Removing the pre-filled contents of your hello_world app.
+-   Removing the pre-filled contents of your app.
     -   create-react-app filled your app with sample content - let's make room for your app!
 -   Adding your own component definition.
-    -   You want the app to display the words "Hello World!"
+    -   You want the app to display the words "Welcome to my Movies!"
 -   Going through what we've done in detail!
 
 To start, remove the entire contents of the `src/App.js` file.
@@ -88,18 +87,18 @@ as possible!
 
 import React, {Component} from 'react';
 
-// define our Hello component
-class Hello extends Component {
+// define our Welcome component
+class Welcome extends Component {
   // what should the component render?
   render () {
     // make sure to return some UI
     return (
-      <h1>Hello World!</h1>
+      <h1>Welcome to my Movies!</h1>
     )
   }
 }
 
-export default Hello
+export default Welcome
 ```
 
 #### Let's break down the things we see here...
@@ -108,17 +107,17 @@ export default Hello
 
 This imports React methods and the `Component` class from the React library.
 
-`class Hello`
+`class Welcome`
 
 This is the component we're creating. In this example, we are creating a
-component and calling it "Hello."
+component and calling it "Welcome".
 
 `extends Component`
 
 We inherit from the `Component` React library class to create our component
-definitions. Here, we are creating a new `Component` subclass called `Hello`.
+definitions. Here, we are creating a new `Component` subclass called `Welcome`.
 
--   Because it extends (also known as inherits from) `Component`, our `Hello` class gets to reuse code and capabilities from `React.Component`.
+-   Because it extends (also known as inherits from) `Component`, our `Welcome` class gets to reuse code and capabilities from `React.Component`.
 
 `render()`
 
@@ -126,34 +125,34 @@ Every component has, at minimum, a `render` method. The render method is what
 renders the component to the screen, so it controls what is displayed for this
 component. From this function, we return what we want to display.
 
--   In our case, we are rendering a "Hello World!" heading: `<h1>Hello World!</h1>`.
+-   In our case, we are rendering a "Welcome to my Movies!" heading: `<h1>Welcome to my Movies!</h1>`.
 
 > Note! That heading tag above looks like it's straight out of HTML, but it's
 > actually a special language called JSX, which you'll see on the next page.
 > For now, know that JSX will act like HTML when it's rendered to the screen.
 
-`export default Hello`
+`export default Welcome`
 
-This exposes the `Hello` class to other files. This means that other files can
-`import` from the `App.js` file in order to use the `Hello` class. In our case,
-we'll be importing it into `index.js` by calling an `import` to `App.js`.
+This exposes the `Welcome` class to other files. This means that other files can
+`import` from the `App.js` file in order to use the `Welcome` class. In our
+case, we'll be importing it into `index.js` by calling an `import` to `App.js`.
 
 When we try to import something from `App.js`, JavaScript will attempt to match
 a named export.
 
--   Our only named export in `App.js` is `Hello`.
+-   Our only named export in `App.js` is `Welcome`.
 
 The `default` keyword means that if we try to import anything from this file
 that the app can't find, JavaScript will automatically revert to importing
-`Hello` instead.
+`Welcome` instead.
 
 -   Only one default export is allowed per file.
 
 #### Check it out!
 
 If you switch to your browser and navigate to [local host port 3000](http://localhost:3000), you can
-see your "Hello World!" heading. This app dynamically reloads each time you
-save, so you can check your changes at any point.
+see your "Welcome to my Movies!" heading. This app dynamically reloads each
+time you save, so you can check your changes at any point.
 
 Wait - What's that HTML doing in my Javascript?
 
@@ -164,18 +163,18 @@ This is currently the contents of our `src/App.js` file:
 
 import React, {Component} from 'react';
 
-// define our Hello component
-class Hello extends Component {
+// define our Welcome component
+class Welcome extends Component {
   // what should the component render?
   render () {
     // make sure to return some UI
     return (
-      <h1>Hello World!</h1>
+      <h1>Welcome to my Movies!</h1>
     )
   }
 }
 
-export default Hello
+export default Welcome
 ```
 
 Let's talk about the value that the render method returns. It looks an awful
@@ -188,19 +187,19 @@ right click both links to open in a new tab!)
 So, JSX allows us to write code that strongly resembles HTML. It is eventually
 compiled to lightweight JavaScript objects.
 
-Your `Hello` component's `render` method:
+Your `Welcome` component's `render` method:
 
 -   Currently returns JSX, not HTML.
--   The JSX creates a heading with `'Hello World!'`.
--   Your component reads this and renders a "Hello World!" heading.
+-   The JSX creates a heading with `'Welcome to my Movies!'`.
+-   Your component reads this and renders a "Welcome to my Movies!" heading.
 
 > React can be written without JSX. We won't be doing this, but if you want to
 > learn more, check out [this blog post](http://jamesknelson.com/learn-raw-react-no-jsx-flux-es6-webpack/)(note: open in new tab!).
 
-#### Challenge: Greet the day!
+#### Challenge: Add some more information
 
--   Change your `Hello` component to return multiple lines.
-    -   Add a line below the "Hello World!" heading that will display `"It is time for tea."` in an `h3`.
+-   Change your `Welcome` component to return multiple lines.
+    -   Add a line below the "Welcome to my Movies!" heading that will display something else to our users in an `h3`.
 
 > Hint: Remember, the return statement in render can only return one DOM
 > element. You can, however, place multiple elements within a parent div
