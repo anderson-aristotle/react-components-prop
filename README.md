@@ -17,10 +17,10 @@ After this lesson, you will be able to:
 ### Components
 
 If you're used to writing out all of a page's views in a single HTML file, using
-components is a very different way of approaching web development.
+React components is a very different way of approaching web development.
 
-With components, there is more integration and less separation of HTML, CSS,
-and JavaScript.
+With React components, there is more integration and less separation of HTML,
+CSS, and JavaScript.
 
 -   Instead of creating a few large files, you will organize your web app into
   small, reusable components that encompass their own content, presentation,
