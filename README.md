@@ -1,4 +1,4 @@
-# React Components
+# React Components, Props, and State
 
 The basic unit you'll be working with in ReactJS is a component. Components are
 pieces of our application that we can define once and reuse all over the place.
@@ -12,7 +12,12 @@ After this lesson, you will be able to:
 -   Identify and define React components
 -   Describe why we use components in React
 -   Build a React component
--   Describe JSX
+-   Describe Props and State
+-   Create a Component that renders Props
+-   Create nested Components that pass Props
+-   Define state
+-   Create an initial state in a component
+-   Change the state of a component
 
 ### Components
 
