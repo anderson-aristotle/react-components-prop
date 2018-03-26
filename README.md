@@ -128,7 +128,7 @@ component. From this function, we return what we want to display.
 -   In our case, we are rendering a "Welcome to my Movies!" heading: `<h1>Welcome to my Movies!</h1>`.
 
 > Note! That heading tag above looks like it's straight out of HTML, but it's
-> actually a special language called JSX, which you'll see on the next page.
+> actually a special language called JSX, which you'll see more of later.
 > For now, know that JSX will act like HTML when it's rendered to the screen.
 
 `export default Welcome`
