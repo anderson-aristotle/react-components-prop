@@ -75,13 +75,28 @@ Let's use **props** to make our `Movie` component more flexible.
 
 ##### First, a single prop
 
-We want to be able to pass our `Movie` component information it can display, then it can be reusable for many movies. Let's define a `title` prop for a movie title.
+We want to be able to pass our `Movie` component information it can display, then it can be reusable for many movies. First let's move our movie data into the `src/index.js` file and out of our component. This chunk:
 
-In your `src/index.js`, we'll change the line that renders the `Movie` component to include this `title` prop. The new line will be:
+```js
+const movie = {
+      title: 'Saving Private Ryan'
+    }
 
-`<Movie title="Lord of the React: Fellowship of React Components" />`
+const movies = [
+      { title: 'Lord of the Rings'},
+      { title: 'Wayne\s World'},
+      { title: 'Moana'},
+      { title: 'Saving Private Ryan'}
+    ]
+```
 
-> We pass in data wherever we are rendering our component. In rendering the `Movie` component above, we pass in a prop called "title" with a value of "Lord of the React: Fellowship of React Components".
+Make sure you uncomment any of it that was previously commented out. Now that the data is out of the component, we'll have to pass it the data we want it to render as a prop.
+
+Let's start with just the one movie. Still in `src/index.js`, we'll change the line that renders the `Movie` component to include the `title` information of the single movie. The new line will be:
+
+`<Movie title={movie.title} />`
+
+> We pass in data wherever we are rendering our component. In rendering the `Movie` component above, we pass in a prop called "title" with a value of 'Saving Private Ryan'.
 
 Your `index.js` should now look like this:
 
@@ -91,24 +106,22 @@ import ReactDOM from 'react-dom';
 import Movie from './App.js';
 
 ReactDOM.render(
-  <Movie title="Lord of the React: Fellowship of React Components" />,
+  <Movie title={movie.title} />,
   document.getElementById('root')
 )
 ```
 
 Now, every time we render our component, we will pass in data.
 
-If you check your application now, nothing has changed.  We're passing the `title` prop into the component, but the component isn't _using_ it yet.
+If you check your application now you'll see that we're going to have to change how we defined out component.  We're passing the `title` prop into the component, but the component isn't _using_ it yet.
 
-In our component definition, we will change the `<h1>{movie.title}</h1>` to `<h1>{this.props.title}</h1>`. The portion `{this.props.title}` deserves a closer look:
+In our component definition, we will change the render method to return `<h1>{this.props.title}</h1>`. The portion `{this.props.title}` deserves a closer look:
 
 -   `this` refers to the specific component instance.
 -   `this.props` will collect all the props for this component instance.
 -   `this.props.title` pulls out the `title` property from `this.props`.
 
 > The `{}` syntax in JSX renders the result of any expression inside it. It works even without props. If you wrote `{2+2}` in your JSX, `4` would be rendered.
-
-Now that we are receiving our movie data as a prop, we can get rid of the hard coded movie variable we had to define earlier.
 
 In `App.js`, your `Movie` class should now look close to this:
 
