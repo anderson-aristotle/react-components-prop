@@ -239,3 +239,7 @@ Since we're going to be rendering many actors and they will all share common pro
 On your own, create an `Actor` component that will receive an actor's `name` as a prop. It should render a `li` for that prop.
 
 Once that's defined, you will have to figure out how to render an `Actor` component inside of your `Movie` component for every element of that `actors` array. Make sure they are all contained within the same `ul`!
+
+### Bonus Challenge
+
+If you finish up early, take this time to expand upon the array of movie objects, add a director and an array of actors to each one. See if you can get it to render every movie and actor correctly.
