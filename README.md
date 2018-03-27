@@ -86,7 +86,7 @@ We want to be able to pass our `Movie` component information it can display, the
 
 In your `src/index.js`, we'll change the line that renders the `Movie` component to include this `title` prop. The new line will be:
 
-`<Movie title={"Lord of the React: Fellowship of React Components"} />`
+`<Movie title="Lord of the React: Fellowship of React Components" />`
 
 > We pass in data wherever we are rendering our component. In rendering the `Movie` component above, we pass in a prop called "title" with a value of "Lord of the React: Fellowship of React Components".
 
@@ -98,7 +98,7 @@ import ReactDOM from 'react-dom';
 import Movie from './App.js';
 
 ReactDOM.render(
-  <Movie title={"Lord of the React: Fellowship of React Components"} />,
+  <Movie title="Lord of the React: Fellowship of React Components" />,
   document.getElementById('root')
 )
 ```
@@ -137,7 +137,7 @@ class Movie extends Component {
 
 Of course, we often want components to display more complex information. To do so, we can pass multiple properties to our component! We'll use the same two steps we took to add the first prop.
 
-First, add another prop to the component call: `<Movie title={"Lord of the React: Fellowship of React Components"} />,` changes to `<Movie title={"Mad Max: Fury Road"} director={"George Miller"} />`.
+First, add another prop to the component call: `<Movie title="Lord of the React: Fellowship of React Components" />,` changes to `<Movie title="Mad Max: Fury Road" director="George Miller" />`.
 
 Update your `index.js` file to reflect this:
 
@@ -147,7 +147,7 @@ import ReactDOM from 'react-dom';
 import Hello from './App.js';
 
 ReactDOM.render(
-  <Movie title={"Mad Max: Fury Road"} director={"George Miller"} />,
+  <Movie title="Mad Max: Fury Road" director="George Miller" />,
   document.getElementById('root')
 )
 ```
