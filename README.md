@@ -256,6 +256,6 @@ Things are starting to look good now, but we found a small problem while renderi
 
 Since we're going to be rendering many actors and they will all share common properties, it would be a great time to make another component!
 
-As a lab, create your own `Actor` component that will receive an actor's `name` as a prop. It should render a `li` for that prop.
+On your own, create your an `Actor` component that will receive an actor's `name` as a prop. It should render a `li` for that prop.
 
 Once that's defined, you will have to figure out how to render an `Actor` component inside of your `Movie` component for every element of that `actors` array. Make sure they are all contained within the same `ul`!
