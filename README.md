@@ -70,8 +70,35 @@ In `index.js`, we are importing this component, appending what the `Movie` compo
 
 This is great, but our data is hard coded into our component. Not exactly dynamic.
 
-Rather than simply displaying hard coded information, let's make our component more re-usable by passing data to it that it can display.
+Rather than simply displaying hard coded information, let's make our component more reusable by passing data to it that it can display.
 
 The question is, how do we pass data to our `Movie` component without hard coding it into the component's `render` method?
 
 Find out! Try it yourself alongside [this video](https://generalassembly.wistia.com/medias/gchiu63slo) in [this codepen](https://codepen.io/susir/pen/vxWypq) _(note: right click both for new tab!)_
+
+#### Code along: Adding props to our component
+
+Let's use **props** to make our "Movie" component more flexible.
+
+##### First, a single prop
+
+We want to be able to pass our `Movie` component information it can display, then it can be reusable for many movies. Let's define a `title` prop for a movie title.
+
+In your `src/index.js`, we'll change the line that renders the `Movie` component to include this `title` prop. The new line will be:
+
+`<Movie title={"Lord of the React: Fellowship of React Components"} />`
+
+> We pass in data wherever we are rendering our component. In rendering the `Movie` component above, we pass in a prop called "title" with a value of "Lord of the React: Fellowship of React Components".
+
+Your `index.js` should now look like this:
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Movie from './App.js';
+
+ReactDOM.render(
+  <Movie title={"Lord of the React: Fellowship of React Components"} />,
+  document.getElementById('root')
+)
+```
