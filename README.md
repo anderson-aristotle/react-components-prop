@@ -54,7 +54,6 @@ Update your `index.js` file to have the three changes listed above:
 
 > Check it out! You should be able to browse to [localhost port 3000](http://localhost:3000) and see that nothing has changed.
 
-
 ### Component Data with Props
 
 What are props? Props are simply arguments passed into a component, as though they were arguments to a function. The component can then use this data to render something or pass the data on to another component (more on that later).
@@ -79,15 +78,15 @@ We want to be able to pass our `Movie` component information it can display, the
 
 ```js
 const movie = {
-      title: 'Saving Private Ryan'
-    }
+  title: 'Saving Private Ryan'
+}
 
 const movies = [
-      { title: 'Lord of the Rings'},
-      { title: 'Wayne\s World'},
-      { title: 'Moana'},
-      { title: 'Saving Private Ryan'}
-    ]
+  { title: 'Lord of the Rings'},
+  { title: 'Wayne\s World'},
+  { title: 'Moana'},
+  { title: 'Saving Private Ryan'}
+]
 ```
 
 Make sure you uncomment any of it that was previously commented out. Now that the data is out of the component, we'll have to pass it the data we want it to render as a prop.
@@ -113,7 +112,7 @@ ReactDOM.render(
 
 Now, every time we render our component, we will pass in data.
 
-If you check your application now you'll see that we're going to have to change how we defined out component.  We're passing the `title` prop into the component, but the component isn't _using_ it yet.
+If you check your application now you'll see that we're going to have to change how we defined our component.  We're passing the `title` prop into the component, but the component isn't referencing any props yet.
 
 In our component definition, we will change the render method to return `<h1>{this.props.title}</h1>`. The portion `{this.props.title}` deserves a closer look:
 
@@ -141,9 +140,16 @@ class Movie extends Component {
 
 ##### What about... multiple props?
 
-Of course, we often want components to display more complex information. To do so, we can pass multiple properties to our component! We'll use the same two steps we took to add the first prop.
+Of course, we often want components to display more complex information. To do so, we can pass multiple properties to our component! We'll use the same two steps we took to add the first prop, we just need additional data. Let's expand on that movie object just a bit:
 
-First, add another prop to the component call: `<Movie title="Lord of the React: Fellowship of React Components" />,` changes to `<Movie title="Mad Max: Fury Road" director="George Miller" />`.
+```js
+const movie = {
+  title: 'Saving Private Ryan',
+  director: 'Steven Spielberg'
+}
+```
+
+Now we have to add that second prop to our component call: `<Movie title={movie.title} />,` changes to `<Movie title={movie.title} director={movie.director} />`.
 
 Update your `index.js` file to reflect this:
 
@@ -153,12 +159,12 @@ import ReactDOM from 'react-dom';
 import Hello from './App.js';
 
 ReactDOM.render(
-  <Movie title="Mad Max: Fury Road" director="George Miller" />,
+  <Movie title={movie.title} director={movie.director} />,
   document.getElementById('root')
 )
 ```
 
-Now, in our component definition, we have to access both values. The second step is to change the `Movie` component class in `App.js` to use the director information!
+Next, in our component definition, we have to access both values. Let's change the `Movie` component class in `App.js` to display the director information!
 
 
 ```js
@@ -174,38 +180,7 @@ class Movie extends Component {
 }
 ```
 
-
 > Check it out! You should be able to browse to [localhost port 3000](http://localhost:3000) to view this change!
-
-##### What about... multiple props passed from an object?
-
-If we have many props, it might get difficult to keep track when we're passing everything in to render a component. A better practice is to organize values in some kind of object and then pass props to the component from that object. Let's see this strategy.
-
-Currently, in `index.js`, we put a movie's information directly into the `ReactDOM.render` call. Instead, we'll create an object that holds movie information, making it clearer for other developers and easier to change in the future. In your `index.js file`, below the `import` statements, add this object definition:
-
-``` js
-const movie = {
-  title: "Mad Max: Fury Road",
-  director: "George Miller"
-}
-```
-
-Next, we'll update what's passed into the component. Near the bottom of your `index.js`, modify the `ReactDOM.render()` call:
-
-``` js
-ReactDOM.render(
-  <Movie
-    title={movie.title}
-    director={movie.director}
-  />,
-  document.getElementById('root')
-)
-```
-
-For the title to display we don't have to change anything in `App.js`, because it's still receiving exactly the same values for exactly the same props. We're just sending it those values in a slightly different way.
-
-> Check it out! If you browse to [localhost port 3000](http://localhost:3000) nothing should have changed.
-> Try changing the values inside the `movie` object without changing the `ReactDOM.render()` call. See how the page updates.
 
 ##### Multiple props from a more complex object
 
@@ -213,15 +188,14 @@ Since we're just pulling props out of an object, we can use any object we want. 
 
 Let's say our movie has some actors. Update your object to include an array:
 
-
 ``` js
 const movie = {
-  title: "Mad Max: Fury Road",
-  director: "George Miller",
+  title: 'Saving Private Ryan',
+  director: 'Steven Spielberg',
   actors: [
-    "Tom Hardy",
-    "Charlize Theron",
-    "Nicholas Hoult"
+    'Tom Hanks',
+    'Matt Damon',
+    'Tom Sizemore'
   ]
 }
 ```
