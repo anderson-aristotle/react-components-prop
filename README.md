@@ -102,3 +102,33 @@ ReactDOM.render(
   document.getElementById('root')
 )
 ```
+
+Now, every time we render our component, we will pass in data.
+
+If you check your application now, nothing has changed.  We're passing the `title` prop into the component, but the component isn't _using_ it yet.
+
+In our component definition, we will change the `<h1>{movie.title}</h1>` to `<h1>{this.props.title}</h1>`. The portion `{this.props.title}` deserves a closer look:
+
+-   `this` refers to the specific component instance.
+-   `this.props` will collect all the props for this component instance.
+-   `this.props.title` pulls out the `title` property from `this.props`.
+
+> The `{}` syntax in JSX renders the result of any expression inside it. It works even without props. If you wrote `{2+2}` in your JSX, `4` would be rendered.
+
+Now that we are receiving our movie data as a prop, we can get rid of the hard coded movie variable we had to define earlier.
+
+In `App.js`, your `Movie` class should now look close to this:
+
+```jsx
+class Movie extends Component {
+  render () {
+    return (
+      <div>
+        <h1>{this.props.title}</h1>
+      </div>
+    )
+  }
+}
+```
+
+> Check it out! You should be able to browse to [localhost port 3000](http://localhost:3000) to view this change!
