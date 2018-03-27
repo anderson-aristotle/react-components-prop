@@ -9,11 +9,9 @@ For an intro to components, watch [this video.](https://generalassembly.wistia.c
 
 After this lesson, you will be able to:
 
--   Build a React component
 -   Describe Props and State
 -   Create a Component that renders Props
 -   Create nested Components that pass Props
--   Define state
 -   Create an initial state in a component
 -   Change the state of a component
 
