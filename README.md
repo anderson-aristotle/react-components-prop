@@ -1,4 +1,4 @@
-# React Components, Props, and State
+# React Components and Props
 
 The basic unit you'll be working with in ReactJS is a component. Components are
 pieces of our application that we can define once and reuse all over the place.
@@ -9,11 +9,9 @@ For an intro to components, watch [this video.](https://generalassembly.wistia.c
 
 After this lesson, you will be able to:
 
--   Describe Props and State
--   Create a Component that renders Props
--   Create nested Components that pass Props
--   Create an initial state in a component
--   Change the state of a component
+-   Describe Props and why we need them.
+-   Create a Component that renders Props.
+-   Create nested Components that pass Props.
 
 ### Review and Refactor
 
@@ -65,7 +63,7 @@ The React framework was built to handle data that changes over time. So far, we 
 
 In `index.js`, we are importing this component, appending what the `Movie` component's `render` method returns to the virtual DOM, and rendering that.
 
-This is great, but our data is hard coded into our component. Not exactly dynamic. Rather than simply displaying hard coded information, let's make our component more reusable by passing props to it that it can display.
+This is great, but our data is hard coded into our component. Not exactly dynamic. We have also stored information about multiple movies inside of the `Movie` component, which by definition should only handle one movie at a time. Rather than simply displaying hard coded information, let's make our component more reusable by passing props to it that it can display.
 
 The question is, how do we pass props to our `Movie` component without hard coding it into the component's `render` method?
 
