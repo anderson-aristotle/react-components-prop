@@ -72,6 +72,6 @@ This is great, but our data is hard coded into our component. Not exactly dynami
 
 Rather than simply displaying hard coded information, let's make our component more re-usable by passing data to it that it can display.
 
-The question is, how do we pass data to our `Movie` component without hardcoding it into the component's `render` method?
+The question is, how do we pass data to our `Movie` component without hard coding it into the component's `render` method?
 
 Find out! Try it yourself alongside [this video](https://generalassembly.wistia.com/medias/gchiu63slo) in [this codepen](https://codepen.io/susir/pen/vxWypq) _(note: right click both for new tab!)_
