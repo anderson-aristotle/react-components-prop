@@ -47,9 +47,6 @@ The last difference is that `ReactDOM.render(
 
 > This changes the `ReactDOM.render()` call to explicitly say "Render whatever the component `Movie` returns."
 
-
-### `Movie` exercise
-
 #### Code along: Calling our `Movie` component explicitly
 
 Update your `index.js` file to have the three changes listed above:
@@ -62,17 +59,15 @@ Update your `index.js` file to have the three changes listed above:
 
 ### Component Data with Props
 
-The React framework was built to handle data that changes over time.
+What are props? Props are simply arguments passed into a component, as though they were arguments to a function. The component can then use this data to render something or pass the data on to another component (more on that later).
 
-So far, we have defined a `Movie` component in `App.js`. The component's `render` method returns some movie information in JSX.
+The React framework was built to handle data that changes over time. So far, we have defined a `Movie` component in `App.js`. The component's `render` method returns some movie information in JSX.
 
 In `index.js`, we are importing this component, appending what the `Movie` component's `render` method returns to the virtual DOM, and rendering that.
 
-This is great, but our data is hard coded into our component. Not exactly dynamic.
+This is great, but our data is hard coded into our component. Not exactly dynamic. Rather than simply displaying hard coded information, let's make our component more reusable by passing props to it that it can display.
 
-Rather than simply displaying hard coded information, let's make our component more reusable by passing data to it that it can display.
-
-The question is, how do we pass data to our `Movie` component without hard coding it into the component's `render` method?
+The question is, how do we pass props to our `Movie` component without hard coding it into the component's `render` method?
 
 Find out! Try it yourself alongside [this video](https://generalassembly.wistia.com/medias/gchiu63slo) in [this codepen](https://codepen.io/susir/pen/vxWypq) _(note: right click both for new tab!)_
 
@@ -133,7 +128,7 @@ class Movie extends Component {
 
 > Check it out! You should be able to browse to [localhost port 3000](http://localhost:3000) to view this change!
 
-## What about... multiple props?
+##### What about... multiple props?
 
 Of course, we often want components to display more complex information. To do so, we can pass multiple properties to our component! We'll use the same two steps we took to add the first prop.
 
@@ -171,7 +166,7 @@ class Movie extends Component {
 
 > Check it out! You should be able to browse to [localhost port 3000](http://localhost:3000) to view this change!
 
-#### What about... multiple props passed from an object?
+##### What about... multiple props passed from an object?
 
 If we have many props, it might get difficult to keep track when we're passing everything in to render a component. A better practice is to organize values in some kind of object and then pass props to the component from that object. Let's see this strategy.
 
@@ -201,7 +196,7 @@ For the title to display we don't have to change anything in `App.js`, because i
 > Check it out! If you browse to [localhost port 3000](http://localhost:3000) nothing should have changed.
 > Try changing the values inside the `movie` object without changing the `ReactDOM.render()` call. See how the page updates.
 
-#### Multiple props from a more complex object
+##### Multiple props from a more complex object
 
 Since we're just pulling props out of an object, we can use any object we want. For example, we can nest an array inside it.
 
