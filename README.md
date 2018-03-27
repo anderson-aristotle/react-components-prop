@@ -239,21 +239,23 @@ If you check your application now, nothing has changed. Remember, a component cl
 ```html
 <div>
   <h1>{this.props.title}</h1>
-  <p>{this.props.director}</p>
+  <p>Directed by {this.props.director}</p>
   <p>Starring: {this.props.actors}</p>
 </div>
 ```
 
-If you check the page now, you'll see React prints the entire array, as that's what was passed in. If we wanted to include all the actors clearly, we could fix the spacing. Instead, to review some syntax, let's just modify the code to render the first value.
-
-```html
-<div>
-  <h1>{this.props.title}</h1>
-  <p>{this.props.director}</p>
-  <p>Starring: {this.props.actors[0]}</p>
-</div>
-```
+If you check the page now, you'll see React prints the entire array, as that's what was passed in. It's a start, but we can improve upon this.
 
 Check it out!
 
 > [Read more about using props in JSX, if you'd like!](https://facebook.github.io/react/docs/jsx-in-depth.html) This link is also in the Further Reading page at the end of the React module, under the Facebook documentation.
+
+#### Nested Components with Props
+
+Things are starting to look good now, but we found a small problem while rendering our actors array. We probably want to render each element of that array individually instead of cramming them all together.
+
+Since we're going to be rendering many actors and they will all share common properties, it would be a great time to make another component!
+
+As a lab, create your own `Actor` component that for now just displays the name of the actor as a prop that gets passed to it.
+
+Once that's defined, you will have to render one of those components for each actor in the actors array
