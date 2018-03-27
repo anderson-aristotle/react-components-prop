@@ -58,3 +58,20 @@ Update your `index.js` file to have the three changes listed above:
 -   Change the component name that's used inside `ReactDOM.render` to be your `Movie` component.
 
 > Check it out! You should be able to browse to [localhost port 3000](http://localhost:3000) and see that nothing has changed.
+
+
+### Component Data with Props
+
+The React framework was built to handle data that changes over time.
+
+So far, we have defined a `Movie` component in `App.js`. The component's `render` method returns some movie information in JSX.
+
+In `index.js`, we are importing this component, appending what the `Movie` component's `render` method returns to the virtual DOM, and rendering that.
+
+This is great, but our data is hard coded into our component. Not exactly dynamic.
+
+Rather than simply displaying hard coded information, let's make our component more re-usable by passing data to it that it can display.
+
+The question is, how do we pass data to our `Movie` component without hardcoding it into the component's `render` method?
+
+Find out! Try it yourself alongside [this video](https://generalassembly.wistia.com/medias/gchiu63slo) in [this codepen](https://codepen.io/susir/pen/vxWypq) _(note: right click both for new tab!)_
