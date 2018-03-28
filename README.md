@@ -39,9 +39,7 @@ The next difference is that `import App from './App';` has turned into `import M
 > This line imports the `Movie` component from the `src/App.js` file. Remember, the `default` part of `export default Movie` in `src/App.js` means that importing other names - like `App` - actually _already_ brings in the `Movie` component! As a best practice, though, we're going to explicitly import the `Movie` component.
 
 
-The last difference is that `ReactDOM.render(
-  <App />,` has turned into `ReactDOM.render(
-    <Movie />,`.
+The last difference is that `ReactDOM.render( <App />,` has turned into `ReactDOM.render( <Movie />,`.
 
 > This changes the `ReactDOM.render()` call to explicitly say "Render whatever the component `Movie` returns."
 
