@@ -148,7 +148,7 @@ const movie = {
 }
 ```
 
-Now that we have additional information, let's pass that to the component as well. Remember that you'll also have change the component definition so that it is using the new prop you pass to it.
+Now that we have additional information, let's pass that to the component as well. Remember that you'll also have to change the component definition so that it is using the new prop you pass to it.
 
 > Note: We typically want to pass our props individually, instead of as an object. This helps keep our components consistent and specific. It also prevents us from referring to our props in a manner like `this.props.movie.title` where `this` already refers to an instance of a `Movie` component.
 
