@@ -163,6 +163,8 @@ ReactDOM.render(
 )
 ```
 
+> Note: We typically want to pass our props individually, instead of as an object. This helps keep our components consistent and specific. It also prevents us from referring to our props in a manner like `this.props.movie.title` where `this` already refers to an instance of a `Movie` component.
+
 Next, in our component definition, we have to access both values. Let's change the `Movie` component class in `App.js` to display the director information!
 
 
@@ -235,7 +237,7 @@ Things are starting to look good now, but we found a small problem while renderi
 
 Since we're going to be rendering many actors and they will all share common properties, it would be a great time to make another component!
 
-On your own, create an `Actor` component that will receive an actor's `name` as a prop. It should render a `li` for that prop.
+On your own, create an `Actor` component that will receive an actor's `name` as a prop. It should render an `li` for that prop.
 
 Once that's defined, you will have to figure out how to render an `Actor` component inside of your `Movie` component for every element of that `actors` array. Make sure they are all contained within the same `ul`!
 
