@@ -200,11 +200,11 @@ If you finish up early, take this time to expand upon the `movies` array. This o
 
 ```js
 const movies = [
-  { title: 'Lord of the Rings'},
-  { title: 'Wayne\'s World'},
-  { title: 'Moana'},
-  { title: 'Saving Private Ryan'}
+  'Lord of the Rings',
+  'Wayne\'s World',
+  'Moana',
+  'Saving Private Ryan'
 ]
 ```
 
-Add a director and an array of actors to each object in the array. See if you can get it to render every movie and actor correctly instead of just rendering the one movie.
+Make each element of the array an object, the current string can become the `title` property. Add a director and an array of actors to each object in the array. See if you can get it to render every movie and actor correctly instead of just rendering the one movie.
