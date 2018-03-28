@@ -195,9 +195,7 @@ If you check your application now, nothing has changed. Remember, a component cl
 
 If you check the page now, you'll see React prints the entire array, as that's what was passed in. It's a start, but we can improve upon this.
 
-Check it out!
-
-> [Read more about using props in JSX, if you'd like!](https://facebook.github.io/react/docs/jsx-in-depth.html) This link is also in the Further Reading page at the end of the React module, under the Facebook documentation.
+> [Read more about using props in JSX, if you'd like!](https://facebook.github.io/react/docs/jsx-in-depth.html)
 
 ### Nested Components with Props
 
