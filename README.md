@@ -117,6 +117,7 @@ In our component definition, we will change the render method to return `<h1>{th
 -   `this` refers to the specific component instance.
 -   `this.props` will collect all the props for this component instance.
 -   `this.props.title` pulls out the `title` property from `this.props`.
+-   `this.props.title` got set when we called our `Movie` component and added the `title=` portion.
 
 > The `{}` syntax in JSX renders the result of any expression inside it. It works even without props. If you wrote `{2+2}` in your JSX, `4` would be rendered.
 
