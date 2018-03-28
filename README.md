@@ -137,7 +137,7 @@ class Movie extends Component {
 
 > Check it out! You should be able to browse to [localhost port 3000](http://localhost:3000) to view this change!
 
-##### What about... multiple props?
+#### Lab: Passing multiple props to a component
 
 Of course, we often want components to display more complex information. To do so, we can pass multiple properties to our component! We'll use the same two steps we took to add the first prop, we just need additional data. Let's expand on that movie object just a bit:
 
@@ -148,42 +148,11 @@ const movie = {
 }
 ```
 
-Now we have to add that second prop to our component call: `<Movie title={movie.title} />,` changes to `<Movie title={movie.title} director={movie.director} />`.
-
-Update your `index.js` file to reflect this:
-
-```js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Hello from './App.js';
-
-ReactDOM.render(
-  <Movie title={movie.title} director={movie.director} />,
-  document.getElementById('root')
-)
-```
+Now that we have additional information, let's pass that to the component as well. Remember that you'll also have change the component definition so that it is using the new prop you pass to it.
 
 > Note: We typically want to pass our props individually, instead of as an object. This helps keep our components consistent and specific. It also prevents us from referring to our props in a manner like `this.props.movie.title` where `this` already refers to an instance of a `Movie` component.
 
-Next, in our component definition, we have to access both values. Let's change the `Movie` component class in `App.js` to display the director information!
-
-
-```js
-class Movie extends Component {
-  render () {
-    return (
-      <div>
-        <h1>{this.props.title}</h1>
-        <p>Directed by {this.props.director}</p>
-      </div>
-    )
-  }
-}
-```
-
-> Check it out! You should be able to browse to [localhost port 3000](http://localhost:3000) to view this change!
-
-##### Multiple props from a more complex object
+#### Code Along: Multiple props from a more complex object
 
 Since we're just pulling props out of an object, we can use any object we want. For example, we can nest an array inside it.
 
@@ -202,7 +171,6 @@ const movie = {
 ```
 
 Now we can use this new information as a prop, just like normal. You could choose to pass a single element (`actors[0]`) or the entire array.  We'll use the entire array so that the component can display _all_ a movies's actors. First, update your `ReactDOM.render()` call in `index.js`:
-
 
 ``` js
 ReactDOM.render(
@@ -231,16 +199,18 @@ Check it out!
 
 > [Read more about using props in JSX, if you'd like!](https://facebook.github.io/react/docs/jsx-in-depth.html) This link is also in the Further Reading page at the end of the React module, under the Facebook documentation.
 
-#### Nested Components with Props
+### Nested Components with Props
 
 Things are starting to look good now, but we found a small problem while rendering our actors array. We probably want to render each element of that array individually instead of cramming them all together.
 
 Since we're going to be rendering many actors and they will all share common properties, it would be a great time to make another component!
 
+#### Lab: Create an `Actor` component
+
 On your own, create an `Actor` component that will receive an actor's `name` as a prop. It should render an `li` for that prop.
 
-Once that's defined, you will have to figure out how to render an `Actor` component inside of your `Movie` component for every element of that `actors` array. Make sure they are all contained within the same `ul`!
+Once that's defined, you will have to figure out how to render one `Actor` component inside of your `Movie` component for each element of that `actors` array. Remember to pass the name to each component as a prop and make sure they are all contained within the same `ul`!
 
-### Bonus Challenge
+#### Bonus Challenge
 
-If you finish up early, take this time to expand upon the array of movie objects, add a director and an array of actors to each one. See if you can get it to render every movie and actor correctly instead of just rendering the one movie.
+If you finish up early, take this time to expand upon the `movies` array, add a director and an array of actors to each object in the array. See if you can get it to render every movie and actor correctly instead of just rendering the one movie.
