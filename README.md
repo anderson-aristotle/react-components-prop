@@ -243,4 +243,4 @@ Once that's defined, you will have to figure out how to render an `Actor` compon
 
 ### Bonus Challenge
 
-If you finish up early, take this time to expand upon the array of movie objects, add a director and an array of actors to each one. See if you can get it to render every movie and actor correctly.
+If you finish up early, take this time to expand upon the array of movie objects, add a director and an array of actors to each one. See if you can get it to render every movie and actor correctly instead of just rendering the one movie.
