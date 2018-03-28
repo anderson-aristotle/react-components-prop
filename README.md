@@ -81,7 +81,7 @@ const movie = {
 
 const movies = [
   { title: 'Lord of the Rings'},
-  { title: 'Wayne\s World'},
+  { title: 'Wayne\'s World'},
   { title: 'Moana'},
   { title: 'Saving Private Ryan'}
 ]
@@ -216,7 +216,7 @@ If you finish up early, take this time to expand upon the `movies` array. This o
 ```js
 const movies = [
   { title: 'Lord of the Rings'},
-  { title: 'Wayne\s World'},
+  { title: 'Wayne\'s World'},
   { title: 'Moana'},
   { title: 'Saving Private Ryan'}
 ]
