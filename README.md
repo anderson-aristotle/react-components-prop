@@ -209,4 +209,6 @@ const movies = [
 
 Make each element of the array an object, the current string can become the `title` property. Add a director and an array of actors to each object in the array. See if you can get it to render every movie and actor correctly instead of just rendering the one movie.
 
+Hint: You will only have to change one file to get this functionality!
+
 > Note: 'Lord of the Rings' is a trilogy of movies, 'Moana' has multiple directors, you may feel free to replace these movies with ones that fit the structure of the previous movie we used.
