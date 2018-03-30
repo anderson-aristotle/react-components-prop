@@ -211,4 +211,4 @@ Make each element of the array an object, the current string can become the `tit
 
 Hint: You will only have to change one file to get this functionality!
 
-> Note: 'Lord of the Rings' is a trilogy of movies, 'Moana' has multiple directors, you may feel free to replace these movies with ones that fit the structure of the previous movie we used.
+> Note: 'Lord of the Rings' is a trilogy of movies, 'Moana' has multiple directors, you may feel free to replace these movies with ones that fit the structure of the Movie component.
