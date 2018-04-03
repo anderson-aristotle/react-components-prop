@@ -188,15 +188,50 @@ Things are starting to look good now, but we found a small problem while renderi
 
 Since we're going to be rendering many actors and they will all share common properties, it would be a great time to make another component!
 
-#### Lab: Create an `Actor` component
+#### Code-along: Create an `Actor` component
 
-On your own, create an `Actor` component that will receive an actor's `name` as a prop. It should render an `li` for that prop.
+On your own, create an `Actor` component that will receive two props: `name`,
+a string representing the actor's full name, and `role`, a string describing
+the character that actor plays in the film. Your component should display this
+information like this:
 
-Once that's defined, you will have to figure out how to render one `Actor` component inside of your `Movie` component for each element of that `actors` array. Remember to pass the name to each component as a prop and make sure they are all contained within the same `ul`!
+```
+Starring:
+Peter Sellers as "Dr. Strangelove"
+George C. Scott as "General Buck Turgidson"
+```
 
-#### Bonus Challenge
+You may be thinking that this component is very simple. After all, it just
+renders two HTML elements. It doesn't have any interactive functionality or
+any logic of its own.
 
-If you finish up early, take this time to expand upon the `movies` array. This one:
+React provides a feature called functional components to make it simpler to
+create components that do nothing besides render HTML based on their props.
+They can't store any internal state, so they're usually not appropriate for
+any kind of interactivity.
+
+Here's an example of a functional component:
+
+```js
+import React from ‘react’;
+
+const HelloWorld = props => (
+ <div>{`Hi ${props.name}`}</div>
+);
+
+export default HelloWorld;
+```
+Instead of extending `Component`, this class is just a function that takes
+props as a parameter. It uses ES6 implict return to return some JSX. There's
+some debate about the extent to which you should use functional components in
+your React apps, but it's good to understand them if you see them!
+
+Let's create a functional `Actor` component together.
+
+#### Lab: Rendering many movies
+
+Next, let's expand upon the `movies` array from the previous lesson. It looked
+like this:
 
 ```js
 const movies = [
@@ -207,8 +242,68 @@ const movies = [
 ]
 ```
 
-Make each element of the array an object, the current string can become the `title` property. Add a director and an array of actors to each object in the array. See if you can get it to render every movie and actor correctly instead of just rendering the one movie.
+Our app has more functionality than just displaying titles now, so we'll need
+some new data now. Use this instead:
+
+```js
+[
+  {
+    title: 'Saving Private Ryan',
+    director: 'Steven Spielberg',
+    actors: [
+      {
+        name: 'Tom Hanks',
+        role: 'Captain Miller'
+      },
+      {
+        name: 'Matt Damon',
+        role: 'Private Ryan'
+      },
+      {
+        name: 'Tom Sizemore',
+        role: 'Sergeant Horvath'
+      }
+    ]
+  },
+  {
+    title: 'Wayne\'s World',
+    director: 'Penelope Spheeris',
+    actors: [
+      {
+        name: 'Mike Myers',
+        role: 'Wayne Campbell'
+      },
+      {
+        name: 'Dana Carvey',
+        role: 'Garth Algar'
+      },
+      {
+        name: 'Rob Lowe',
+        role: 'Benjamin Oliver'
+      }
+    ]
+  },
+  {
+    title: 'The Princess Bride',
+    director: 'Rob Reiner',
+    actors: [
+      {
+        name: 'Cary Elwes',
+        role: 'Westley'
+      },
+      {
+        name: 'Mandy Patinkin',
+        role: 'Inigo Montoya'
+      },
+      {
+        name: 'Robin Wright',
+        role: 'The Princess Bride'
+      }
+    ]
+  }
+]
+```
+
+See if you can get your app to render every movie and actor correctly instead of just rendering the one movie.
 
 Hint: You will only have to change one file to get this functionality!
-
-> Note: 'Lord of the Rings' is a trilogy of movies, 'Moana' has multiple directors, you may feel free to replace these movies with ones that fit the structure of the Movie component.
