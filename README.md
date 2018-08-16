@@ -50,7 +50,7 @@ or "functional" components. They're very easy to reason about, because they take
 data and produce markup, without any side effects or internal state. In React,
 we should aim to make as many of our components stateless as possible.
 
-#### Lab: Passing multiple props to a component
+#### Code-along: Passing multiple props to a component
 
 Right now, `Movie` just expects one prop, and that's all we're giving it. Of course, we often want components to display more complex information. To do so, we can pass multiple props to our component! Let's expand on our movie array.
 
@@ -75,10 +75,9 @@ Now that we have additional information, let's pass that to the component as wel
 
 > Note: We typically want to pass our props individually, instead of as an object. This helps keep our components consistent and specific. It also prevents us from referring to our props in a manner like `this.props.movie.title` where `this` already refers to an instance of a `Movie` component.
 
-Have your `Movie` component render both the title of the film and
-its director.
+We'll ave our `Movie` component render both the title of the film and its director.
 
-#### Code Along: Multiple props from a more complex object
+#### Lab: Multiple props from a more complex object
 
 Since we're just pulling props out of an object, we can use any object we want. For example, we can nest an array inside it.
 
@@ -123,7 +122,7 @@ return (
   <Movie
     title={movie.title}
     director={movie.director}
-    actors={movie.actors}
+    cast={movie.cast}
   />
 )
 ```
@@ -134,18 +133,18 @@ If you check your application now, nothing has changed. Remember, a component cl
 <div>
   <h1>{this.props.title}</h1>
   <p>Directed by {this.props.director}</p>
-  <p>Starring: {this.props.actors}</p>
+  <p>Starring: {this.props.cast}</p>
 </div>
 ```
 
-If you check the page now, you'll see React prints the entire array, as that's what was passed in. It's a start, but we can improve upon this. Let's iterate through those actors in the
-`Movie` component and display a `<ul>` with `<li>`s for each actor.
+If you check the page now, you'll see React prints the entire array, as that's what was passed in. It's a start, but we can improve upon this. Try to iterate through that `cast` array and
+display each actor individually.
 
 ### Nested Components with Props
 
 Since we're going to be rendering many actors and they will all share common properties, it would be a great time to make another component!
 
-#### Lab: Create an `Actor` component
+#### Code-along: Create an `Actor` component
 
 On your own, create an `Actor` component that will receive two props: `name`,
 a string representing the actor's full name, and `role`, a string describing
@@ -225,4 +224,42 @@ const movies = [
 ```
 
 Create an `Actor` component, and use it render each actor inside the
-`Movie` component.
+`Movie` component. We want to use the arrow function syntax for our
+`Actor` component, but we haven't seen an example yet of passing props into a functional component. To do it, we need to make sure we understand "destructing", a feature added to JS in ES6. Here's
+an example.
+
+```js
+const me = {
+  name: 'Caleb',
+  favoriteFood: 'Tacos'
+}
+
+// isolating object properties the old way
+const name = me.name
+const favoriteFood = me.favoriteFood
+
+// isolating object properties with destructing
+const { name } = me
+const { favoriteFood } = me
+```
+
+These two methods of pulling properties out of an object produce the
+same result. The paremeters to React functional components usually destructing.
+
+Instead of this:
+
+```jsx
+const Developer = (props) => (
+  <p>My name is {props.name}</p>
+)
+```
+
+We typically do this:
+
+```jsx
+const Developer = ({ name }) => (
+  <p>My name is {name}</p>
+)
+```
+
+Getting comfortable with this pattern will make it easier to read React documentation and tutorials.
