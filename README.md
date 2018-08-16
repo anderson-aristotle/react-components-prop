@@ -1,3 +1,6 @@
+[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+
+
 # React Components and Props
 
 The basic unit you'll be working with in ReactJS is a component. Components are
@@ -9,156 +12,113 @@ For an intro to components, watch [this video.](https://generalassembly.wistia.c
 
 After this lesson, you will be able to:
 
--   Describe Props and why we need them.
--   Create a Component that renders Props.
--   Create nested Components that pass Props.
+-   Describe props and why we need them.
+-   Create a component that renders props.
+-   Create nested components that pass props.
 
-### Review and Refactor
+### Review
 
-Right now, `App` is our top level component. It has a render method that returns JSX for our movie information. For that to show up on the page we needed to call the component from our `src/index.js` file, which you can think of as the main "hub" of our React app.
+Let's start up our server, and review the code in `src/App.js` and
+`src/Movie.js`. What have we done so far?
 
-Keeping components separate and organized is a best practice, and since we want to be able to render many movies without having to duplicate code, it makes sense to create a `Movie` component that can handle displaying movies instead of this top level `App` component.
+-  Our top level component `App` contains an array of movies. Think of this as
+   as a stand-in for data fetched from an API.
+-  The `App` component iterates through that array, and renders a `Movie`
+   component for each item in the array.
+-  The `App` component pass a "prop" to each movie. We'll talk more about
+   props in this lesson.
+-  The `Movie` component uses its props to render markup for each movie.
 
-#### Code along: Creating our `Movie` component
-
-Let's duplicate the `src/App.js` file and name the new one `src/Movie.js`. The only `import` statement we need is the one that defines `React` and `Component`, we won't need the other ones so let's get rid of those. We also want to make sure we name this class `Movie` and export that class from the file.
-
-Now that we have a `Movie` component, we need to call it somewhere in our code. We have also made it the `Movie` component's responsiblity to display movie information so let's change what the `App` component's render method returns. What we want to return is a call to our `Movie` component.
-
-```js
-// inside our App component
-return (
-  <Movie />
-)
-```
-
-Now that we are referencing our `Movie` component inside our `src/App.js` file, we'll have to import it so that it knows what we're talking about. Under the other imports add: `import Movie from './Movie.js';`
-
-If you check out the page, nothing changed! We are still displaying the same information, we just separated out some of our functionality.
+> Why do our `App` and `Movie` components look different syntactically? Because
+> there are two different ways to declare components in React. For components
+> that have no methods attached to them, we can use arrow functions that return
+> JSX. If we need more complex components, we need to use the `class` syntax.
+> Both our components could actually be arrow functions right now, but we did
+> our `Movie` component the long way to demonstrate that syntax.
 
 ### Component Data with Props
 
 What are props? Props are simply arguments passed into a component, as though they were arguments to a function. The component can then use this data to render something or pass the data on to another component.
 
-The React framework was built to handle data that changes over time. So far, we've defined a `Movie` component whose `render` method returns some movie information in JSX. That component is called from our `App` component, which is called inside `src/index.js`.
+The React framework was built to handle data that changes over time. Props allow
+data to flow downward into components from central source (generally, an API),
+without needing any code inside the components that receive props to handle
+changes in this data.
 
-This is great, but our data is hard coded into our component. Not exactly dynamic. We have also stored information about multiple movies inside of the `Movie` component, which by definition should only handle one movie at a time. Rather than simply displaying hard coded information, let's make our component more reusable by passing props to it that it can display.
-
-The question is, how do we pass props to our `Movie` component without hard coding it into the component's `render` method?
-
-Find out! Try it yourself alongside [this video](https://generalassembly.wistia.com/medias/gchiu63slo) in [this codepen](https://codepen.io/susir/pen/vxWypq) _(note: right click both for new tab!)_
-
-#### Code along: Adding props to our component
-
-Let's use **props** to make our `Movie` component more flexible.
-
-##### First, a single prop
-
-We want to be able to pass our `Movie` component information it can display, then it can be reusable for many movies. First let's remove any hard coded movie information from our `Movie` component. You should still have the same data inside the `App` component, if not you can copy this snippet:
-
-```js
-const movie = 'Saving Private Ryan'
-
-const movies = [
-  'Lord of the Rings',
-  'Wayne\'s World',
-  'Moana',
-  'Saving Private Ryan'
-]
-```
-
-and paste it into the `App` component. Make sure it is inside the `render` method but outside of its `return`. Now that the data is out of the component, we'll have to pass it the data we want it to render as a prop.
-
-Let's start with just the one movie. Still in `src/App.js`, we'll change the line that renders the `Movie` component to include the `title` information of the single movie. The new line will be:
-
-`<Movie title={movie} />`
-
-> We pass in data wherever we are rendering our component. In rendering the `Movie` component above, we pass in a prop we call "title" with a value of 'Saving Private Ryan'.
-
-Your `App` component class should now look something like this:
-
-```js
-class App extends Component {
-  render () {
-    const movie = 'Saving Private Ryan'
-
-    const movies = [
-      'Lord of the Rings',
-      'Wayne\'s World',
-      'Moana',
-      'Saving Private Ryan'
-    ]
-
-    return (
-      <Movie title={movie}/>
-    )
-  }
-}
-```
-
-Now, every time we render our component, we will pass in data.
-
-If you check your application now you'll see that we're going to have to change how we defined our component.  We're passing the `title` prop into the component, but the component isn't referencing any props yet.
-
-In our `Movie` component definition, we will change the render method to return `<h1>{this.props.title}</h1>`. The portion `{this.props.title}` deserves a closer look:
-
--   `this` refers to the specific `Movie` component instance.
--   `this.props` will collect all the props for this component instance.
--   `this.props.title` pulls out the `title` property from `this.props`.
--   `this.props.title` got set when we called our `Movie` component and added the `title=` portion.
-
-> The `{}` syntax in JSX renders the result of any expression inside it. It works even without props. If you wrote `{2+2}` in your JSX, `4` would be rendered.
-
-In `src/Movie.js`, your `Movie` class should now look close to this:
-
-```jsx
-class Movie extends Component {
-  render () {
-    return (
-        <h1>{this.props.title}</h1>
-    )
-  }
-}
-```
-
-> Check it out! You should be able to browse to [localhost port 3000](http://localhost:3000) to view this change!
+Components that just render data based on their props are known as "stateless"
+or "functional" components. They're very easy to reason about, because they take
+data and produce markup, without any side effects or internal state. In React,
+we should aim to make as many of our components stateless as possible.
 
 #### Lab: Passing multiple props to a component
 
-Of course, we often want components to display more complex information. To do so, we can pass multiple properties to our component! We'll use the same two steps we took to add the first prop, we just need additional data. Let's expand on that movie just a bit by making it an object:
+Right now, `Movie` just expects one prop, and that's all we're giving it. Of course, we often want components to display more complex information. To do so, we can pass multiple props to our component! Let's expand on our movie array.
 
 ```js
-const movie = {
-  title: 'Saving Private Ryan',
-  director: 'Steven Spielberg'
-}
+const movies = [
+  {
+    title: 'Dr. Strangelove',
+    director: 'Stanley Kubrick'
+  },
+  {
+    title: 'Eraserhead',
+    director: 'David Lynch'
+  },
+  {
+    title: 'Fantastic Mr. Fox',
+    director: 'Wes Anderson'
+  }
+]
 ```
 
-Now that we have additional information, let's pass that to the component as well. Remember that you'll also have to change the component definition so that it is using the new prop you pass to it. Also you have to return a single element from the render method, but you can always wrap multiple elements in a `div` tag.
+Now that we have additional information, let's pass that to the component as well. Remember that you'll also have to change the component definition so that it is using the new prop you pass to it. Also, you have to return a single element from the render method, but you can always wrap multiple elements in a `div` tag.
 
 > Note: We typically want to pass our props individually, instead of as an object. This helps keep our components consistent and specific. It also prevents us from referring to our props in a manner like `this.props.movie.title` where `this` already refers to an instance of a `Movie` component.
+
+Have your `Movie` component render both the title of the film and
+its director.
 
 #### Code Along: Multiple props from a more complex object
 
 Since we're just pulling props out of an object, we can use any object we want. For example, we can nest an array inside it.
 
-Let's say our movie has some actors. Update your object to include an array:
+Let's say our movie has some actors. Update each movie object to include an array:
 
 ``` js
-const movie = {
-  title: 'Saving Private Ryan',
-  director: 'Steven Spielberg',
-  actors: [
-    'Tom Hanks',
-    'Matt Damon',
-    'Tom Sizemore'
-  ]
-}
+const movies = [
+  {
+    title: 'Dr. Strangelove',
+    director: 'Stanley Kubrick',
+    cast: [
+      'Peter Sellers',
+      'George C. Scott',
+      'Slim Pickens'
+    ]
+  },
+  {
+    title: 'Eraserhead',
+    director: 'David Lynch',
+    cast: [
+      'Jack Nance',
+      'Charlotte Stewart',
+      'Jeanne Bates'
+    ]
+  },
+  {
+    title: 'Fantastic Mr. Fox',
+    director: 'Wes Anderson',
+    cast: [
+      'George Clooney',
+      'Meryl Streep',
+      'Bill Murray'
+    ]
+  }
+]
 ```
 
-Now we can use this new information as a prop, just like normal. You could choose to pass a single element (`actors[0]`) or the entire array.  We'll use the entire array so that the component can display _all_ a movies's actors. First, update your `return` call in `src/App.js`:
+Now we can use this new information as a prop, just like normal. We'll pass the entire array of actors through to the movie component. First, update your `return` call in `src/App.js`:
 
-``` js
+```jsx
 return (
   <Movie
     title={movie.title}
@@ -178,17 +138,14 @@ If you check your application now, nothing has changed. Remember, a component cl
 </div>
 ```
 
-If you check the page now, you'll see React prints the entire array, as that's what was passed in. It's a start, but we can improve upon this.
-
-> [Read more about using props in JSX, if you'd like!](https://facebook.github.io/react/docs/jsx-in-depth.html)
+If you check the page now, you'll see React prints the entire array, as that's what was passed in. It's a start, but we can improve upon this. Let's iterate through those actors in the
+`Movie` component and display a `<ul>` with `<li>`s for each actor.
 
 ### Nested Components with Props
 
-Things are starting to look good now, but we found a small problem while rendering our actors array. We probably want to render each element of that array individually instead of cramming them all together.
-
 Since we're going to be rendering many actors and they will all share common properties, it would be a great time to make another component!
 
-#### Code-along: Create an `Actor` component
+#### Lab: Create an `Actor` component
 
 On your own, create an `Actor` component that will receive two props: `name`,
 a string representing the actor's full name, and `role`, a string describing
@@ -203,107 +160,69 @@ George C. Scott as "General Buck Turgidson"
 
 You may be thinking that this component is very simple. After all, it just
 renders two HTML elements. It doesn't have any interactive functionality or
-any logic of its own.
+any logic of its own. That means it's a great use case for a
+functional component, with the arrow function syntax.
 
-React provides a feature called functional components to make it simpler to
-create components that do nothing besides render HTML based on their props.
-They can't store any internal state, so they're usually not appropriate for
-any kind of interactivity.
-
-Here's an example of a functional component:
-
-```js
-import React from ‘react’;
-
-const HelloWorld = props => (
- <div>{`Hi ${props.name}`}</div>
-);
-
-export default HelloWorld;
-```
-Instead of extending `Component`, this class is just a function that takes
-props as a parameter. It uses ES6 implict return to return some JSX. There's
-some debate about the extent to which you should use functional components in
-your React apps, but it's good to understand them if you see them!
-
-Let's create a functional `Actor` component together.
-
-#### Lab: Rendering many movies
-
-Next, let's expand upon the `movies` array from the previous lesson. It looked
-like this:
+Here's some updated data, including roles for each actor.
 
 ```js
 const movies = [
-  'Lord of the Rings',
-  'Wayne\'s World',
-  'Moana',
-  'Saving Private Ryan'
-]
-```
-
-Our app has more functionality than just displaying titles now, so we'll need
-some new data now. Use this instead:
-
-```js
-[
   {
-    title: 'Saving Private Ryan',
-    director: 'Steven Spielberg',
-    actors: [
+    title: 'Dr. Strangelove',
+    director: 'Stanley Kubrick',
+    cast: [
       {
-        name: 'Tom Hanks',
-        role: 'Captain Miller'
+        name: 'Peter Sellers',
+        role: 'President Merkin Muffley'
       },
       {
-        name: 'Matt Damon',
-        role: 'Private Ryan'
+        name: 'George C. Scott',
+        role: 'General Buck Turgidson'
       },
       {
-        name: 'Tom Sizemore',
-        role: 'Sergeant Horvath'
+        name: 'Slim Pickens',
+        role: 'Major T.J. "King" Kong'
       }
     ]
   },
   {
-    title: 'Wayne\'s World',
-    director: 'Penelope Spheeris',
-    actors: [
+    title: 'Eraserhead',
+    director: 'David Lynch',
+    cast: [
       {
-        name: 'Mike Myers',
-        role: 'Wayne Campbell'
+        name: 'Jack Nance',
+        role: 'Henry Spencer'
       },
       {
-        name: 'Dana Carvey',
-        role: 'Garth Algar'
+        name: 'Charlotte Stewart',
+        role: 'Mary X'
       },
       {
-        name: 'Rob Lowe',
-        role: 'Benjamin Oliver'
+        name: 'Jeanne Bates',
+        role: 'Mrs. X'
       }
     ]
   },
   {
-    title: 'The Princess Bride',
-    director: 'Rob Reiner',
-    actors: [
+    title: 'Fantastic Mr. Fox',
+    director: 'Wes Anderson',
+    cast: [
       {
-        name: 'Cary Elwes',
-        role: 'Westley'
+        name: 'George Clooney',
+        role: 'Mr. Fox'
       },
       {
-        name: 'Mandy Patinkin',
-        role: 'Inigo Montoya'
+        name: 'Meryl Streep',
+        role: 'Mrs. Fox'
       },
       {
-        name: 'Robin Wright',
-        role: 'The Princess Bride'
+        name: 'Bill Murray',
+        role: 'Badger'
       }
     ]
   }
 ]
 ```
 
-See if you can get your app to render every movie and actor correctly instead of just rendering the one movie.
-
-Hint: You will only have to change one file to get this functionality!
+Create an `Actor` component, and use it render each actor inside the
+`Movie` component.
