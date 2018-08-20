@@ -225,7 +225,7 @@ const movies = [
 
 Create an `Actor` component, and use it render each actor inside the
 `Movie` component. We want to use the arrow function syntax for our
-`Actor` component, but we haven't seen an example yet of passing props into a functional component. To do it, we need to make sure we understand "destructing", a feature added to JS in ES6. Here's
+`Actor` component, but we haven't seen an example yet of passing props into a functional component. To do it, we need to make sure we understand "destructuring", a feature added to JS in ES6. Here's
 an example.
 
 ```js
@@ -238,13 +238,13 @@ const me = {
 const name = me.name
 const favoriteFood = me.favoriteFood
 
-// isolating object properties with destructing
+// isolating object properties with destructuring
 const { name } = me
 const { favoriteFood } = me
 ```
 
 These two methods of pulling properties out of an object produce the
-same result. The paremeters to React functional components usually destructing.
+same result. The paremeters to React functional components usually use destructuring.
 
 Instead of this:
 
