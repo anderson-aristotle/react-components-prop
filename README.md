@@ -73,7 +73,7 @@ Now that we have additional information, let's pass that to the component as wel
 
 > Note: We typically want to pass our props individually, instead of as an object. This helps keep our components consistent and specific. It also prevents us from referring to our props in a manner like `this.props.movie.title` where `this` already refers to an instance of a `Movie` component.
 
-We'll ave our `Movie` component render both the title of the film and its director.
+We'll have our `Movie` component render both the title of the film and its director.
 
 #### Lab: Multiple props from a more complex object
 
