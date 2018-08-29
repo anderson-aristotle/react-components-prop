@@ -6,8 +6,6 @@
 The basic unit you'll be working with in ReactJS is a component. Components are
 pieces of our application that we can define once and reuse all over the place.
 
-For an intro to components, watch [this video.](https://generalassembly.wistia.com/medias/h64z7lp1ir)
-
 ## Learning Objectives
 
 After this lesson, you will be able to:
@@ -263,3 +261,7 @@ const Developer = ({ name }) => (
 ```
 
 Getting comfortable with this pattern will make it easier to read React documentation and tutorials.
+
+## Additional Resources
+
+- [Intro to Components](https://generalassembly.wistia.com/medias/h64z7lp1ir)
