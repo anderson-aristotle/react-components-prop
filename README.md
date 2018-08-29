@@ -167,8 +167,8 @@ information like this:
 
 ```
 Starring:
-Peter Sellers as "President Merkin Muffley"
-George C. Scott as "General Buck Turgidson"
+Peter Sellers as President Merkin Muffley
+George C. Scott as General Buck Turgidson
 ```
 
 Here's some updated data, including roles for each actor.
