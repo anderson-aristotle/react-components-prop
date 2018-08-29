@@ -13,7 +13,7 @@ After this lesson, you will be able to:
 -   Create a component that renders props.
 -   Create nested components that pass props.
 
-### Review
+## Review
 
 Let's start up our server, and review the code in `src/App.js` and
 `src/Movie.js`. What have we done so far?
@@ -33,7 +33,7 @@ Let's start up our server, and review the code in `src/App.js` and
 > Both our components could actually be arrow functions right now, but we did
 > our `Movie` component the long way to demonstrate that syntax.
 
-### Component Data with Props
+## Component Data with Props
 
 What are props? Props are simply arguments passed into a component, as though they were arguments to a function. The component can then use this data to render something or pass the data on to another component.
 
@@ -47,7 +47,7 @@ or "functional" components. They're very easy to reason about, because they take
 data and produce markup, without any side effects or internal state. In React,
 we should aim to make as many of our components stateless as possible.
 
-#### Code-along: Passing multiple props to a component
+### Code-along: Passing multiple props to a component
 
 Right now, `Movie` just expects one prop, and that's all we're giving it. Of course, we often want components to display more complex information. To do so, we can pass multiple props to our component! Let's expand on our movies array to add directors and a cast list.
 
@@ -112,11 +112,11 @@ If you check your application afterwards, nothing has changed. Remember, a compo
 
 If you check the page now, you'll see React prints the entire array, as that's what was passed in. It's a start, but we can improve upon this. Try to iterate through that `cast` array and display each actor individually.
 
-### Nested Components with Props
+## Nested Components with Props
 
 Since we're going to be rendering many actors and they will all share common properties, it would be a great time to make another component!
 
-#### Using props in a functional component
+### Using props in a functional component
 
 An Actor component will be pretty simple, it will receive a couple of props to render, but won't need any interactivity or logic. That means it's a great use case for a functional component, with the arrow function syntax.
 
@@ -158,7 +158,7 @@ const Developer = ({ name }) => (
 
 Getting comfortable with this pattern will make it easier to read React documentation and tutorials.
 
-#### Lab: Create an `Actor` component
+### Lab: Create an `Actor` component
 
 Create an `Actor` component that will receive two props: `name`,
 a string representing the actor's full name, and `role`, a string describing
