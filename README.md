@@ -166,7 +166,6 @@ the character that actor plays in the film. Your component should display this
 information like this:
 
 ```
-Starring:
 Peter Sellers as President Merkin Muffley
 George C. Scott as General Buck Turgidson
 ```
