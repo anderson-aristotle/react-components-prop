@@ -59,6 +59,7 @@ to add directors and a cast list.
 ```js
 const movies = [
   {
+    id: 1,
     title: 'Dr. Strangelove',
     director: 'Stanley Kubrick',
     cast: [
@@ -68,6 +69,7 @@ const movies = [
     ]
   },
   {
+    id: 2,
     title: 'Eraserhead',
     director: 'David Lynch',
     cast: [
@@ -77,6 +79,7 @@ const movies = [
     ]
   },
   {
+    id: 3,
     title: 'Fantastic Mr. Fox',
     director: 'Wes Anderson',
     cast: [
@@ -105,7 +108,7 @@ const App = () => (
   <div>
     <h1>Welcome to React!</h1>
     {movies.map(movie => (
-      <Movie key={movie.title} title={movie.title} cast={movie.cast} director={movie.director}/>
+      <Movie key={movie.id} title={movie.title} cast={movie.cast} director={movie.director}/>
     ))}
   </div>
 )
@@ -198,6 +201,7 @@ Here's some updated data, including roles for each actor.
 ```js
 const movies = [
   {
+    id: 1,
     title: 'Dr. Strangelove',
     director: 'Stanley Kubrick',
     cast: [
@@ -216,6 +220,7 @@ const movies = [
     ]
   },
   {
+    id: 2,
     title: 'Eraserhead',
     director: 'David Lynch',
     cast: [
@@ -234,6 +239,7 @@ const movies = [
     ]
   },
   {
+    id: 3,
     title: 'Fantastic Mr. Fox',
     director: 'Wes Anderson',
     cast: [
