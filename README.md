@@ -273,3 +273,8 @@ Create an `Actor` component, and use it render each actor inside the
 - [Returning multiple elements from a single Component using React.Fragment](https://reactjs.org/docs/fragments.html)
 - [React Components and Props](https://reactjs.org/docs/components-and-props.html)
 - [Thinking in React - Steps 1 and 2](https://reactjs.org/docs/thinking-in-react.html)
+
+## [License](LICENSE)
+
+1. All content is licensed under a CC­BY­NC­SA 4.0 license.
+2. All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.
