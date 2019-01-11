@@ -271,3 +271,5 @@ Create an `Actor` component, and use it render each actor inside the
 
 - [Intro to Components](https://generalassembly.wistia.com/medias/h64z7lp1ir)
 - [Returning multiple elements from a single Component using React.Fragment](https://reactjs.org/docs/fragments.html)
+- [React Components and Props](https://reactjs.org/docs/components-and-props.html)
+- [Thinking in React - Steps 1 and 2](https://reactjs.org/docs/thinking-in-react.html)
