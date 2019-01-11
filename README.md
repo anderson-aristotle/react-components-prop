@@ -263,6 +263,10 @@ const movies = [
 Create an `Actor` component, and use it render each actor inside the
 `Movie` component.
 
+## Prerequisites
+
+- [React Intro](https://git.generalassemb.ly/ga-wdi-boston/react)
+
 ## Additional Resources
 
 - [Intro to Components](https://generalassembly.wistia.com/medias/h64z7lp1ir)
