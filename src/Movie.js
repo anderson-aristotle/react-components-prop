@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Actor from './Actor'
 
 class Movie extends Component {
-  const {title, director, cast} = this.props
   render () {
+    const {title, director, cast} = this.props
     return (
       <div>
         <h4>Title: {title}</h4>
