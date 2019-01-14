@@ -1,11 +1,17 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
+
 # React Components Props
 
 The basic unit you'll be working with in ReactJS is a component. Components are
 pieces of our application that we can define once and reuse all over the place.
 
-## Learning Objectives
+## Prerequisites
+
+- [React Intro](https://git.generalassemb.ly/ga-wdi-boston/react)
+
+
+## Objectives
 
 After this lesson, you will be able to:
 
@@ -262,10 +268,6 @@ const movies = [
 
 Create an `Actor` component, and use it render each actor inside the
 `Movie` component.
-
-## Prerequisites
-
-- [React Intro](https://git.generalassemb.ly/ga-wdi-boston/react)
 
 ## Additional Resources
 
