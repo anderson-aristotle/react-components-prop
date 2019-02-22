@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
-import logo from './logo.svg'
-import './App.scss'
+import React from 'react'
+import './css/index.scss'
 
 import Movie from './Movie.js'
 
-const movies = [{title: 'Dr. Strangelove'}, {title: 'Eraserhead'}, {title: 'Fantastic Mr. Fox'}]
+const movies = [{ title: 'Dr. Strangelove' }, { title: 'Eraserhead' }, { title: 'Fantastic Mr. Fox' }]
 
 const App = () => (
   <div>
