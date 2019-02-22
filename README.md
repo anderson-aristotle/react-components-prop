@@ -1,6 +1,5 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-
 # React Components Props
 
 The basic unit you'll be working with in ReactJS is a component. Components are
@@ -9,7 +8,6 @@ pieces of our application that we can define once and reuse all over the place.
 ## Prerequisites
 
 - [React Intro](https://git.generalassemb.ly/ga-wdi-boston/react)
-
 
 ## Objectives
 
@@ -25,11 +23,11 @@ Let's start up our server, and review the code in `src/App.js` and
 `src/Movie.js`. What have we done so far?
 
 - Our top level component `App` contains an array of movies. Think of this as
-   as a stand-in for data fetched from an API.
+  as a stand-in for data fetched from an API.
 - The `App` component iterates through that array, and renders a `Movie`
-   component for each item in the array.
+  component for each item in the array.
 - The `App` component pass a "prop" to each movie. We'll talk more about
-   props in this lesson.
+  props in this lesson.
 - The `Movie` component uses its props to render markup for each movie.
 
 > Why do our `App` and `Movie` components look different syntactically? Because
@@ -103,7 +101,11 @@ it is using the new props we passed to it. Also, we have to return a single
 element from the render method, but you can always wrap multiple elements in a
 `div` tag.
 
-> Note: We typically want to pass our props individually, instead of as an object. This helps keep our components consistent and specific. It also prevents us from referring to our props in a manner like `this.props.movie.title` where `this` already refers to an instance of a `Movie` component.
+> Note: We typically want to pass our props individually, instead of as an
+> object. This helps keep our components consistent and specific. It also
+> prevents us from referring to our props in a manner like
+> `this.props.movie.title` where `this` already refers to an instance of a
+> `Movie` component.
 
 Now we can use this new information as props, just like normal. We'll pass the
 director and entire array of actors through to the movie component. First,
@@ -197,7 +199,7 @@ a string representing the actor's full name, and `role`, a string describing
 the character that actor plays in the film. Your component should display this
 information like this:
 
-```
+```text
 Peter Sellers as President Merkin Muffley
 George C. Scott as General Buck Turgidson
 ```
@@ -279,4 +281,5 @@ Create an `Actor` component, and use it render each actor inside the
 ## [License](LICENSE)
 
 1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-2. All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.
+1. All software code is licensed under GNU GPLv3. For commercial use or
+   alternative licensing, please contact legal@ga.co.
